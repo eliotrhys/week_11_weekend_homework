@@ -2,6 +2,7 @@ const assert = require("assert");
 const Hero = require("../hero.js");
 const Task = require("../task.js");
 const Food = require("../food.js");
+const Rat = require("../rat.js");
 
 describe("Hero", function(){
 
@@ -12,6 +13,7 @@ describe("Hero", function(){
     task3 = new Task(20, 7, 500, false);
     bread = new Food("Bread", 20);
     gnomeBits = new Food("Gnome Bits", 40);
+    rat = new Rat();
   })
 
   it("Can get default values", function(){
@@ -58,6 +60,17 @@ describe("Hero", function(){
     assert.strictEqual(task1.complete, true);
     assert.deepEqual(homesquash.showCompleteTasks(), [task1]);
     assert.deepEqual(homesquash.showIncompleteTasks(), [task2, task3]);
+  })
+
+  it("Can make food poisonous", function(){
+    rat.touch(bread);
+    assert.strictEqual(bread.poisoned, true);
+  })
+
+  it("Can eat poisonous food", function(){
+    rat.touch(bread);
+    homesquash.eatFood(bread);
+    assert.strictEqual(homesquash.health, 80);
   })
 
 

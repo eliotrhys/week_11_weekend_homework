@@ -18,11 +18,17 @@ Hero.prototype.taskListLength = function(){
 }
 
 Hero.prototype.eatFood = function(food){
-  if (food.name === this.favouriteFood){
-    this.health = ((food.replenishment * 1.5) + this.health);
+  if (food.name === this.favouriteFood && food.poisoned === false){
+    this.health = (this.health + (food.replenishment * 1.5));
   }
-  else {
-    this.health = (food.replenishment + this.health);
+  else if (food.name === this.favouriteFood && food.poisoned === true){
+    this.health = (this.health - (food.replenishment * 1.5));
+  }
+  else if (food.poisoned === false){
+    this.health = (this.health + food.replenishment);
+  }
+  else if (food.poisoned === true){
+    this.health = (this.health - food.replenishment);
   }
 }
 
