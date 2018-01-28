@@ -73,6 +73,10 @@ describe("Hero", function(){
     assert.strictEqual(homesquash.health, 80);
   })
 
+  it("Lodash works", function(){
+    assert.strictEqual(homesquash.lodashTest("going_to_sleep"), "goingToSleep");
+  })
+
 
 
 

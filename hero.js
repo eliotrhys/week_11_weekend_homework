@@ -1,3 +1,6 @@
+var _ = require('lodash');
+var arrayLodash = require('lodash/array');
+
 function Hero(name, health, favouriteFood){
   this.name = name;
   this.health = health;
@@ -60,6 +63,10 @@ Hero.prototype.showCompleteTasks = function(){
 
 Hero.prototype.showIncompleteTasks = function(){
   return this.tasks.filter(task => task.complete === false);
+}
+
+Hero.prototype.lodashTest = function(string){
+  return _.camelCase(string);
 }
 
 
