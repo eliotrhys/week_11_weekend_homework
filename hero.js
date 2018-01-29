@@ -21,16 +21,16 @@ Hero.prototype.taskListLength = function(){
 }
 
 Hero.prototype.eatFood = function(food){
-  if (food.name === this.favouriteFood && food.poisoned === false){
+  if (food.name === this.favouriteFood && !food.poisoned){
     this.health = (this.health + (food.replenishment * 1.5));
   }
-  else if (food.name === this.favouriteFood && food.poisoned === true){
+  else if (food.name === this.favouriteFood && food.poisoned){
     this.health = (this.health - (food.replenishment * 1.5));
   }
-  else if (food.poisoned === false){
+  else if (!food.poisoned){
     this.health = (this.health + food.replenishment);
   }
-  else if (food.poisoned === true){
+  else if (food.poisoned){
     this.health = (this.health - food.replenishment);
   }
 }
@@ -68,6 +68,5 @@ Hero.prototype.showIncompleteTasks = function(){
 Hero.prototype.lodashTest = function(string){
   return _.camelCase(string);
 }
-
 
 module.exports = Hero;

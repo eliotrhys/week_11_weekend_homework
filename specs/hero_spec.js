@@ -77,13 +77,4 @@ describe("Hero", function(){
     assert.strictEqual(homesquash.lodashTest("going_to_sleep"), "goingToSleep");
   })
 
-
-
-
-
-
-
-
-
-
 })
